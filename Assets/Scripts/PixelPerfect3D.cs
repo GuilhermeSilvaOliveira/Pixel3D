@@ -105,13 +105,13 @@ public class PixelPerfect3D : MonoBehaviour
 
     Vector3 Snap(Vector3 worldPosition)
     {
-        var localPos = transform.InverseTransformPoint(worldPosition);
+        var localPos = transform.InverseTransformDirection(worldPosition);
 
         localPos.x = Mathf.Round(localPos.x / pixelSize) * pixelSize;
         localPos.y = Mathf.Round(localPos.y / pixelSize) * pixelSize;
         localPos.z = Mathf.Round(localPos.z / pixelSize) * pixelSize;
 
-        var snap = transform.TransformPoint(localPos);
+        var snap = transform.TransformDirection(localPos);
         return snap;
 
     }
